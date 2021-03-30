@@ -1,0 +1,42 @@
+{
+    "name": "starter-extension",
+    "version": "1.0.0",
+    "author": "shinshilkina",
+    "description": "my extension :3",
+    "homepage_url": "https://github.com/shinshilkina",
+    "manifest_version": 2,
+    "permissions": [
+        "tabs",
+        "webRequest",
+        "storage",
+        "<all_urls>"
+    ],
+    "content_scripts": [
+        {
+            "all_frames": false,
+            "js": ["vendors/bundle.js", "content/bundle.js"],
+            "matches": [
+                "<all_urls>"
+            ],
+            "run_at": "document_end"
+        }
+    ],
+    "background": {
+        "scripts": ["vendors/bundle.js", "bg/bundle.js"],
+        "persistent": true
+    },
+    "browser_action": {
+        "default_icon": "18-default.png",
+        "default_title": "extension.com"
+    },
+    "icons": {
+        "48": "48-default.png",
+        "128": "128-default.png"
+    },
+    "web_accessible_resources": [
+        "content/*.css",
+        "content/*.svg",
+        "*.css",
+        "*.png"
+      ]
+}
